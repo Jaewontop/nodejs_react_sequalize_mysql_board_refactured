@@ -44,8 +44,8 @@ Object.keys(db).forEach((modelName) => {
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
-db.User = require("./users")(sequelize, Sequelize);
-db.Comment = require("./comments")(sequelize, Sequelize);
+db.Users = require("./users")(sequelize, Sequelize);
+db.Comments = require("./comments")(sequelize, Sequelize);
 
 // db.User.hasMany(db.Comment, { foreignKey: "commenter", sourceKey: "id" }); // user:comment = 1:N
 // db.Comment.belongsTo(db.User, { foreignKey: "commenter", targetKey: "id" }); // TODO: foreignKey, targetKey 맞아?

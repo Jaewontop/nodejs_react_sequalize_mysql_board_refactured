@@ -2,25 +2,29 @@ const Sequelize = require("sequelize");
 
 module.exports = (sequelize, DataTypes) => {
   return sequelize.define(
-    "user",
+    "users",
     {
       id: {
         type: Sequelize.INTEGER,
         autoIncrement: true,
         primaryKey: true,
       },
-      nickname: {
+      user_id: {
         type: Sequelize.STRING(15),
         allowNull: false,
       },
-      password: {
+      user_nickname: {
+        type: Sequelize.STRING(15),
+        allowNull: false,
+      },
+      user_password: {
         type: Sequelize.STRING(100),
         allowNull: false, // 카카오 로그인은 비번 필요없으니,,
       },
       provider: {
         // 뭐로 로그인 했는지 : 카카오, 로컬,,
         type: Sequelize.STRING(10),
-        allowNull: false,
+        allowNull: true,
         defaultValue: "local",
       },
       snsId: {

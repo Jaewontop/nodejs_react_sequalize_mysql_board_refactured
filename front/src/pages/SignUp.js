@@ -22,14 +22,13 @@ export default function SignUp() {
   const signUp = async (id, pw, nickname) => {
     axios
       .post(URL, {
-        id: id,
-        pw: pw,
-        nickname: nickname,
+        user_id: id,
+        user_pw: pw,
+        user_nickname: nickname,
       })
       .then(function (response) {
-        setErrorMessage(response.data);
-        console.log(response.data);
-        if (response.data == "success") {
+        setErrorMessage(response.data.message);
+        if (response.data.success === true) {
           window.location.href = "/";
         }
       })

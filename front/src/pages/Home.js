@@ -90,16 +90,16 @@ function Home() {
     <div className="App">
       {userNickname === "" ? (
         <header>
-          <Link to="/users/signin">
+          <Link to="/signin">
             <h3>로그인</h3>
           </Link>
-          <Link to="/users/signup">
+          <Link to="/signup">
             <h3>회원가입</h3>
           </Link>
         </header>
       ) : (
         <header>
-          <Link to="/users/signin">
+          <Link to="/signin">
             <h3>{userNickname}</h3>
           </Link>
           <div

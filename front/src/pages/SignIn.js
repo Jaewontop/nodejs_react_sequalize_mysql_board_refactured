@@ -3,7 +3,6 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 
 const URL = "http://localhost:3001/users/signin";
-const successCode = "success";
 
 export default function SignIn() {
   const [id, setId] = useState("");
@@ -20,13 +19,15 @@ export default function SignIn() {
   const signIn = async (id, pw) => {
     axios
       .post(URL, {
-        id: id,
-        pw: pw,
+        user_id: id,
+        user_pw: pw,
       })
       .then(function (response) {
-        setErrorMessage(response.data);
+        setErrorMessage(response.data.message);
         console.log(response.data);
-        if (response.data === "success") {
+        console.log(response.data.message);
+        console.log(response.data.success);
+        if (response.data.success === true) {
           window.location.href = "/";
         }
       })

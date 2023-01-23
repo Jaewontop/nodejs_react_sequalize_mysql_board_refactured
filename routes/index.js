@@ -6,7 +6,7 @@ const users = require("./users.js");
 const comments = require("./comments");
 
 router.use("/", main);
-router.use("/user", users);
+router.use("/users", users);
 router.use("/comments", comments);
 
 module.exports = router;
